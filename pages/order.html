@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Place an Order — FrameOne Studio</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/order.css">
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav class="nav scrolled">
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-logo">FRAME<span>ONE</span></a>
+    <div style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.1em;color:var(--muted);">
+      Booking · <span id="user-greeting" style="color:var(--gold);"></span>
+    </div>
+    <a href="../index.html" class="btn btn-ghost" style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;">
+      ← Back
+    </a>
+  </div>
+</nav>
+
+<main class="order-page">
+  <div class="container">
+
+    <!-- Step progress -->
+    <div class="step-progress">
+      <div class="step-item">
+        <div class="step-dot active" data-step="1">
+          <div class="step-circle">1</div>
+          <span class="step-label">Event Details</span>
+        </div>
+      </div>
+      <div class="step-line"></div>
+      <div class="step-item">
+        <div class="step-dot" data-step="2">
+          <div class="step-circle">2</div>
+          <span class="step-label">Equipment</span>
+        </div>
+      </div>
+      <div class="step-line"></div>
+      <div class="step-item">
+        <div class="step-dot" data-step="3">
+          <div class="step-circle">3</div>
+          <span class="step-label">Operators</span>
+        </div>
+      </div>
+      <div class="step-line"></div>
+      <div class="step-item">
+        <div class="step-dot" data-step="4">
+          <div class="step-circle">4</div>
+          <span class="step-label">Delivery</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="order-layout">
+
+      <!-- ════════════════════════════════════════ MAIN CONTENT -->
+      <div>
+
+        <!-- ── Step 1 — Event Details ── -->
+        <div class="step-panel active" id="step-1">
+          <div class="step-header">
+            <div class="step-tag">Step 01 / 04</div>
+            <h2 class="step-title">EVENT DETAILS</h2>
+            <p class="step-desc">Tell us when and where your event takes place.</p>
+          </div>
+
+          <form id="form-step1" novalidate>
+            <div class="form-grid">
+
+              <div class="form-group">
+                <label class="form-label" for="eventDate">Event Date *</label>
+                <input class="form-input" type="date" id="eventDate" name="eventDate">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="eventTime">Event Time *</label>
+                <input class="form-input" type="time" id="eventTime" name="eventTime" value="12:00">
+              </div>
+
+              <div class="form-group full">
+                <label class="form-label" for="eventAddress">Event Address *</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="eventAddress"
+                  name="eventAddress"
+                  placeholder="e.g. Marriott Hotel, Almaty, Furmanova St. 100"
+                >
+              </div>
+
+              <div class="form-group full">
+                <label class="form-label" for="eventInfo">Additional Information</label>
+                <textarea
+                  class="form-input"
+                  id="eventInfo"
+                  name="eventInfo"
+                  placeholder="Describe your event — wedding ceremony + banquet, dress code, special requests, number of guests, etc."
+                ></textarea>
+              </div>
+
+            </div>
+
+            <div class="step-nav" style="padding-top:2rem;border-top:1px solid var(--border);margin-top:2rem;">
+              <div></div>
+              <button type="button" class="btn btn-primary" id="btn-step1-next" style="font-size:0.78rem;letter-spacing:0.12em;">
+                Continue → Equipment
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- ── Step 2 — Equipment ── -->
+        <div class="step-panel" id="step-2">
+          <div class="step-header">
+            <div class="step-tag">Step 02 / 04</div>
+            <h2 class="step-title">EQUIPMENT<br>SETUP</h2>
+            <p class="step-desc">Select the number of cameras and configure each rig.</p>
+          </div>
+
+          <!-- Cameras -->
+          <div style="margin-bottom:2.5rem;">
+            <div class="form-label" style="margin-bottom:1rem;">Number of Cameras</div>
+            <div class="camera-selector">
+              <label class="camera-option selected" data-cameras="1">
+                <input type="radio" name="cameras" value="1" checked>
+                <div class="camera-count">1</div>
+                <div class="camera-label">Camera</div>
+              </label>
+              <label class="camera-option" data-cameras="2">
+                <input type="radio" name="cameras" value="2">
+                <div class="camera-count">2</div>
+                <div class="camera-label">Cameras</div>
+              </label>
+              <label class="camera-option" data-cameras="3">
+                <input type="radio" name="cameras" value="3">
+                <div class="camera-count">3</div>
+                <div class="camera-label">Cameras</div>
+              </label>
+              <label class="camera-option" data-cameras="4">
+                <input type="radio" name="cameras" value="4">
+                <div class="camera-count">4</div>
+                <div class="camera-label">Cameras</div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Audio -->
+          <div style="margin-bottom:2.5rem;">
+            <div class="form-label" style="margin-bottom:1rem;">Clean Audio Recording</div>
+            <div class="toggle-group">
+              <label class="toggle-option" data-audio="true">
+                <input type="radio" name="audio" value="yes">
+                <div class="toggle-icon">🎙</div>
+                <div>
+                  <div class="toggle-text-main">Yes, include audio</div>
+                  <div class="toggle-text-sub">Lapel + ambient mics</div>
+                </div>
+              </label>
+              <label class="toggle-option selected" data-audio="false">
+                <input type="radio" name="audio" value="no" checked>
+                <div class="toggle-icon">🔇</div>
+                <div>
+                  <div class="toggle-text-main">Not needed</div>
+                  <div class="toggle-text-sub">Video only</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Dynamic setup builder -->
+          <div class="setup-builder" id="setup-builder">
+            <!-- populated by JS -->
+          </div>
+
+          <div class="step-nav">
+            <button type="button" class="btn btn-outline" id="btn-step2-back" style="font-size:0.78rem;letter-spacing:0.1em;">
+              ← Back
+            </button>
+            <button type="button" class="btn btn-primary" id="btn-step2-next" style="font-size:0.78rem;letter-spacing:0.12em;">
+              Continue → Operators
+            </button>
+          </div>
+        </div>
+
+        <!-- ── Step 3 — Operators ── -->
+        <div class="step-panel" id="step-3">
+          <div class="step-header">
+            <div class="step-tag">Step 03 / 04</div>
+            <h2 class="step-title">CHOOSE YOUR<br>OPERATORS</h2>
+            <p class="step-desc">Select one or more camera operators for your shoot. Each has a unique style.</p>
+          </div>
+
+          <div class="operators-grid">
+
+            <!-- Operator 1 -->
+            <label class="operator-card" data-operator="Bakytbek Ruslan">
+              <input type="checkbox" name="operators[]" value="Bakytbek Ruslan">
+              <div class="operator-photo">
+                <div class="operator-photo-placeholder">
+                  <div class="op-avatar">👤</div>
+                </div>
+              </div>
+              <div class="operator-check">✓</div>
+              <div class="operator-info">
+                <div class="operator-name">Bakytbek Ruslan</div>
+                <div class="operator-exp">11 years experience</div>
+              </div>
+            </label>
+
+            <!-- Operator 2 -->
+            <label class="operator-card" data-operator="Kaisar Bolat">
+              <input type="checkbox" name="operators[]" value="Kaisar Bolat">
+              <div class="operator-photo">
+                <div class="operator-photo-placeholder">
+                  <div class="op-avatar">👤</div>
+                </div>
+              </div>
+              <div class="operator-check">✓</div>
+              <div class="operator-info">
+                <div class="operator-name">Kaisar Bolat</div>
+                <div class="operator-exp">5 years experience</div>
+              </div>
+            </label>
+
+            <!-- Operator 3 – Special promo -->
+            <label class="operator-card" data-operator="Nurasyl Asan">
+              <input type="checkbox" name="operators[]" value="Nurasyl Asan">
+              <div class="operator-photo">
+                <div class="operator-badge">
+                  <div class="badge" style="font-size:0.5rem;padding:0.2rem 0.5rem;">Promo</div>
+                </div>
+                <div class="operator-photo-placeholder">
+                  <div class="op-avatar">👤</div>
+                </div>
+              </div>
+              <div class="operator-check">✓</div>
+              <div class="operator-info">
+                <div class="operator-name">Nurasyl Asan</div>
+                <div class="operator-exp">1.5 years experience</div>
+                <div class="operator-promo">✦ Book Nurasyl — get 2 trainee operators FREE</div>
+              </div>
+            </label>
+
+            <!-- Operator 4 -->
+            <label class="operator-card" data-operator="Dias Serik">
+              <input type="checkbox" name="operators[]" value="Dias Serik">
+              <div class="operator-photo">
+                <div class="operator-photo-placeholder">
+                  <div class="op-avatar">👤</div>
+                </div>
+              </div>
+              <div class="operator-check">✓</div>
+              <div class="operator-info">
+                <div class="operator-name">Dias Serik</div>
+                <div class="operator-exp">8 years experience</div>
+              </div>
+            </label>
+
+            <!-- Operator 5 -->
+            <label class="operator-card" data-operator="Arman Bekzat">
+              <input type="checkbox" name="operators[]" value="Arman Bekzat">
+              <div class="operator-photo">
+                <div class="operator-photo-placeholder">
+                  <div class="op-avatar">👤</div>
+                </div>
+              </div>
+              <div class="operator-check">✓</div>
+              <div class="operator-info">
+                <div class="operator-name">Arman Bekzat</div>
+                <div class="operator-exp">6 years experience</div>
+              </div>
+            </label>
+
+            <!-- Operator 6 -->
+            <label class="operator-card" data-operator="Timur Zhanibek">
+              <input type="checkbox" name="operators[]" value="Timur Zhanibek">
+              <div class="operator-photo">
+                <div class="operator-photo-placeholder">
+                  <div class="op-avatar">👤</div>
+                </div>
+              </div>
+              <div class="operator-check">✓</div>
+              <div class="operator-info">
+                <div class="operator-name">Timur Zhanibek</div>
+                <div class="operator-exp">9 years experience</div>
+              </div>
+            </label>
+
+            <!-- Operator 7 -->
+            <label class="operator-card" data-operator="Alikhan Murat">
+              <input type="checkbox" name="operators[]" value="Alikhan Murat">
+              <div class="operator-photo">
+                <div class="operator-photo-placeholder">
+                  <div class="op-avatar">👤</div>
+                </div>
+              </div>
+              <div class="operator-check">✓</div>
+              <div class="operator-info">
+                <div class="operator-name">Alikhan Murat</div>
+                <div class="operator-exp">7 years experience</div>
+              </div>
+            </label>
+
+            <!-- Operator 8 -->
+            <label class="operator-card" data-operator="Samat Erlan">
+              <input type="checkbox" name="operators[]" value="Samat Erlan">
+              <div class="operator-photo">
+                <div class="operator-photo-placeholder">
+                  <div class="op-avatar">👤</div>
+                </div>
+              </div>
+              <div class="operator-check">✓</div>
+              <div class="operator-info">
+                <div class="operator-name">Samat Erlan</div>
+                <div class="operator-exp">4 years experience</div>
+              </div>
+            </label>
+
+            <!-- Operator 9 -->
+            <label class="operator-card" data-operator="Nursultan Aziz">
+              <input type="checkbox" name="operators[]" value="Nursultan Aziz">
+              <div class="operator-photo">
+                <div class="operator-photo-placeholder">
+                  <div class="op-avatar">👤</div>
+                </div>
+              </div>
+              <div class="operator-check">✓</div>
+              <div class="operator-info">
+                <div class="operator-name">Nursultan Aziz</div>
+                <div class="operator-exp">12 years experience</div>
+              </div>
+            </label>
+
+            <!-- Operator 10 -->
+            <label class="operator-card" data-operator="Daniyar Kuat">
+              <input type="checkbox" name="operators[]" value="Daniyar Kuat">
+              <div class="operator-photo">
+                <div class="operator-photo-placeholder">
+                  <div class="op-avatar">👤</div>
+                </div>
+              </div>
+              <div class="operator-check">✓</div>
+              <div class="operator-info">
+                <div class="operator-name">Daniyar Kuat</div>
+                <div class="operator-exp">3 years experience</div>
+              </div>
+            </label>
+
+            <!-- Operator 11 -->
+            <label class="operator-card" data-operator="Yerlan Abay">
+              <input type="checkbox" name="operators[]" value="Yerlan Abay">
+              <div class="operator-photo">
+                <div class="operator-photo-placeholder">
+                  <div class="op-avatar">👤</div>
+                </div>
+              </div>
+              <div class="operator-check">✓</div>
+              <div class="operator-info">
+                <div class="operator-name">Yerlan Abay</div>
+                <div class="operator-exp">14 years experience</div>
+              </div>
+            </label>
+
+            <!-- Operator 12 – promo -->
+            <label class="operator-card" data-operator="Maksat Dzhaksybekov">
+              <input type="checkbox" name="operators[]" value="Maksat Dzhaksybekov">
+              <div class="operator-photo">
+                <div class="operator-badge">
+                  <div class="badge" style="font-size:0.5rem;padding:0.2rem 0.5rem;">Popular</div>
+                </div>
+                <div class="operator-photo-placeholder">
+                  <div class="op-avatar">👤</div>
+                </div>
+              </div>
+              <div class="operator-check">✓</div>
+              <div class="operator-info">
+                <div class="operator-name">Maksat D.</div>
+                <div class="operator-exp">10 years experience</div>
+                <div class="operator-promo">★ Most booked this month</div>
+              </div>
+            </label>
+
+          </div>
+
+          <div class="step-nav">
+            <button type="button" class="btn btn-outline" id="btn-step3-back" style="font-size:0.78rem;letter-spacing:0.1em;">
+              ← Back
+            </button>
+            <button type="button" class="btn btn-primary" id="btn-step3-next" style="font-size:0.78rem;letter-spacing:0.12em;">
+              Continue → Delivery
+            </button>
+          </div>
+        </div>
+
+        <!-- ── Step 4 — Delivery ── -->
+        <div class="step-panel" id="step-4">
+          <div class="step-header">
+            <div class="step-tag">Step 04 / 04</div>
+            <h2 class="step-title">VIDEO<br>DELIVERY</h2>
+            <p class="step-desc">Choose how you'd like to receive the finished video.</p>
+          </div>
+
+          <div class="delivery-grid">
+
+            <!-- Single options -->
+            <label class="delivery-option" data-delivery="Flash Drive" data-price="2000">
+              <input type="radio" name="delivery" value="flash">
+              <div class="delivery-icon">💾</div>
+              <div>
+                <div class="delivery-name">Flash Drive</div>
+                <div class="delivery-desc">Delivered in person · USB 3.0 included</div>
+              </div>
+              <div class="delivery-price">2 000 ₸</div>
+            </label>
+
+            <label class="delivery-option" data-delivery="YouTube Upload" data-price="1500">
+              <input type="radio" name="delivery" value="youtube">
+              <div class="delivery-icon">▶️</div>
+              <div>
+                <div class="delivery-name">YouTube Upload</div>
+                <div class="delivery-desc">Private link · Unlimited quality</div>
+              </div>
+              <div class="delivery-price">1 500 ₸</div>
+            </label>
+
+            <label class="delivery-option" data-delivery="Yandex Disk" data-price="1200">
+              <input type="radio" name="delivery" value="yandex">
+              <div class="delivery-icon">☁️</div>
+              <div>
+                <div class="delivery-name">Yandex Disk</div>
+                <div class="delivery-desc">Cloud storage · Instant access</div>
+              </div>
+              <div class="delivery-price">1 200 ₸</div>
+            </label>
+
+            <!-- Divider -->
+            <div style="display:flex;align-items:center;gap:1.5rem;padding:0.5rem 0;">
+              <div style="flex:1;height:1px;background:var(--border);"></div>
+              <span style="font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);">Combo Deals</span>
+              <div style="flex:1;height:1px;background:var(--border);"></div>
+            </div>
+
+            <!-- Combo options -->
+            <label class="delivery-option" data-delivery="Flash Drive + YouTube" data-price="3000" style="position:relative;">
+              <div class="delivery-combo-badge">
+                <div class="badge" style="font-size:0.5rem;padding:0.2rem 0.6rem;">Save 500 ₸</div>
+              </div>
+              <input type="radio" name="delivery" value="flash_youtube">
+              <div class="delivery-icon">💾</div>
+              <div>
+                <div class="delivery-name">Flash Drive + YouTube</div>
+                <div class="delivery-desc">Physical + digital · Best value combo</div>
+              </div>
+              <div class="delivery-price">3 000 ₸</div>
+            </label>
+
+            <label class="delivery-option" data-delivery="Yandex Disk + YouTube" data-price="2000" style="position:relative;">
+              <div class="delivery-combo-badge">
+                <div class="badge" style="font-size:0.5rem;padding:0.2rem 0.6rem;">Save 700 ₸</div>
+              </div>
+              <input type="radio" name="delivery" value="disk_youtube">
+              <div class="delivery-icon">☁️</div>
+              <div>
+                <div class="delivery-name">Yandex Disk + YouTube</div>
+                <div class="delivery-desc">Cloud + video platform · Full digital</div>
+              </div>
+              <div class="delivery-price">2 000 ₸</div>
+            </label>
+
+          </div>
+
+          <div class="step-nav">
+            <button type="button" class="btn btn-outline" id="btn-step4-back" style="font-size:0.78rem;letter-spacing:0.1em;">
+              ← Back
+            </button>
+            <button type="button" class="btn btn-primary" id="btn-submit" style="font-size:0.8rem;letter-spacing:0.15em;padding:1.1rem 2.5rem;">
+              Submit Order ✓
+            </button>
+          </div>
+        </div>
+
+      </div><!-- /main content -->
+
+      <!-- ════════════════════════════════════════ SUMMARY SIDEBAR -->
+      <div class="order-summary">
+        <div class="summary-head">
+          <div class="summary-title">ORDER SUMMARY</div>
+        </div>
+        <div class="summary-body">
+          <div class="summary-row">
+            <span class="summary-key">Date</span>
+            <span class="summary-val placeholder" id="sum-date">Not set</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-key">Time</span>
+            <span class="summary-val placeholder" id="sum-time">Not set</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-key">Venue</span>
+            <span class="summary-val placeholder" id="sum-address">Not set</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-key">Cameras</span>
+            <span class="summary-val" id="sum-cameras">1 cam</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-key">Audio</span>
+            <span class="summary-val" id="sum-audio">Not needed</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-key">Operators</span>
+            <span class="summary-val placeholder" id="sum-operators">None selected</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-key">Delivery</span>
+            <span class="summary-val placeholder" id="sum-delivery">Not selected</span>
+          </div>
+        </div>
+        <div class="summary-total">
+          <div class="summary-total-row">
+            <span class="summary-total-label">Delivery Cost</span>
+            <span class="summary-total-price" id="sum-price">—</span>
+          </div>
+          <p class="summary-total-note">* Final price confirmed after consultation</p>
+        </div>
+      </div>
+
+    </div><!-- /order-layout -->
+  </div>
+</main>
+
+<div id="toast-container"></div>
+
+<script src="../js/app.js"></script>
+<script src="../js/order.js"></script>
+</body>
+</html>

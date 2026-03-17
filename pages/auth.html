@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — FrameOne Studio</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+
+<div class="auth-page">
+
+  <!-- ── Visual Side ── -->
+  <div class="auth-visual">
+    <div class="auth-visual-bg"></div>
+    <div class="auth-visual-grid"></div>
+    <div class="auth-big-text">FRAME</div>
+    <div class="auth-visual-content">
+      <p class="auth-visual-quote">
+        "Каждый великий фильм начинается с<br>единый, идеальный кадр."
+      </p>
+      <p class="auth-visual-credit">— FrameOne Studio</p>
+    </div>
+  </div>
+
+  <!-- ── Form Side ── -->
+  <div class="auth-form-side">
+    <div class="auth-form-inner">
+
+      <a href="../index.html" class="auth-nav-link">
+        ← &nbsp; Вернуться к FrameOne
+      </a>
+
+      <!-- ── Register Panel ── -->
+      <div id="register-panel">
+        <div class="badge" style="margin-bottom:1.5rem;">Новый клиент</div>
+        <h1 class="auth-title">СОЗДАТЬ<br>АККАУНТ</h1>
+        <p class="auth-subtitle">Станьте нашим постоянным клиентом</p>
+
+        <form class="auth-form" id="register-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="reg-name">Ваше имя</label>
+            <input
+              class="form-input"
+              type="text"
+              id="reg-name"
+              name="name"
+              placeholder="например: Aisha Nurova"
+              autocomplete="name"
+            >
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-phone">номер телефона</label>
+            <input
+              class="form-input"
+              type="tel"
+              id="reg-phone"
+              name="phone"
+              placeholder="+7 (700) 000-00-00"
+              data-phone
+              autocomplete="tel"
+            >
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:1.1rem;font-size:0.8rem;letter-spacing:0.15em;margin-top:0.5rem;">
+            Создать аккаунт →
+          </button>
+        </form>
+
+        <p class="auth-switch">
+          У вас уже есть аккаунт?
+          <a href="#" id="switch-to-login">Войти</a>
+        </p>
+
+        <p class="auth-terms">
+          Регистрируясь, вы соглашаетесь с нашими
+          <a href="#">условия обслуживания</a> и
+          <a href="#">политика конфиденциальности</a>.
+        </p>
+      </div>
+
+      <!-- ── Login Panel ── -->
+      <div id="login-panel" style="display:none;">
+        <div class="badge" style="margin-bottom:1.5rem;">С Возвращением</div>
+        <h1 class="auth-title">ВОЙТИ</h1>
+        <p class="auth-subtitle">Введите свой номер телефона, чтобы продолжить.</p>
+
+        <form class="auth-form" id="login-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="login-phone">Номер Телефона</label>
+            <input
+              class="form-input"
+              type="tel"
+              id="login-phone"
+              name="phone"
+              placeholder="+7 (700) 000-00-00"
+              data-phone
+              autocomplete="tel"
+            >
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:1.1rem;font-size:0.8rem;letter-spacing:0.15em;margin-top:0.5rem;">
+            Продолжать →
+          </button>
+        </form>
+
+        <p class="auth-switch">
+          Вы впервые у нас?
+          <a href="#" id="switch-to-register">Создать аккаунт</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div id="toast-container"></div>
+
+<script src="../js/app.js"></script>
+<script src="../js/auth.js"></script>
+</body>
+</html>
