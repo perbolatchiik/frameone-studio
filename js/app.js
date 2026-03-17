@@ -67,7 +67,8 @@ const App = {
     if (!loader) return;
     setTimeout(() => {
       loader.classList.add('hidden');
-    }, 1600);
+      loader.style.display = 'none';
+    }, 1500);
   },
 
   // ── Navigation ──
